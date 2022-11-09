@@ -14,7 +14,7 @@ impl GIMPPalette {
         let mut colors = Vec::new();
 
         for &line in &src.lines().collect::<Vec<&str>>()[1..] {
-            if line != "GIMP Palette" && line != "" {
+            if line != "GIMP Palette" && line != "" && !line.starts_with('#') {
                 if line.starts_with("Name: ") {
                     name = line.strip_prefix("Name: ").unwrap();
                 } else if line.starts_with("Columns: ") {
@@ -25,7 +25,7 @@ impl GIMPPalette {
                         .map_err(|err| {
                             format!("Error parsing u32 for column:\n\t\t{}", err.to_string())
                         })?;
-                } else if !line.starts_with("# ") {
+                } else {
                     let components = line
                         .split(char::is_whitespace)
                         .filter(|&x| x != "")
