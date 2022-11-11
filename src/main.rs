@@ -67,7 +67,7 @@ fn main() {
 fn print_args_help() {
     println!("gpl2rxpl <file [--silent] [--output path]| --help> ");
     println!("    file: one .gpl file path as input");
-    println!("    --output: specify file path for output");
+    println!("    --output: specify a file path for output");
     println!("    --help: print this message");
     println!("")
 }
