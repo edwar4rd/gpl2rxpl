@@ -10,7 +10,7 @@ fn main() {
         Ok(config) => config,
         Err(err) => {
             print_args_help();
-            println!("\nError happened parsing args:\n\t{err}");
+            eprintln!("\nError happened parsing args:\n\t{err}");
             return;
         }
     };
@@ -24,7 +24,7 @@ fn main() {
         Some(filename) => filename,
         None => {
             print_args_help();
-            println!("\nOne <file> operand is required for operation.");
+            eprintln!("\nOne <file> operand is required for operation.");
             return;
         }
     };
@@ -32,13 +32,13 @@ fn main() {
     let palette = match GIMPPalette::from_str(&match fs::read_to_string(&filename) {
         Ok(file) => file,
         Err(err) => {
-            println!("Failed reading file: \n\t{}", err.to_string());
+            eprintln!("Failed reading file: \n\t{}", err.to_string());
             return;
         }
     }) {
         Ok(palette) => palette,
         Err(err) => {
-            println!("Error happened parsing file: \n\t{}", err);
+            eprintln!("Error happened parsing file: \n\t{}", err);
             return;
         }
     };
@@ -58,7 +58,7 @@ fn main() {
     ) {
         Ok(_) => {}
         Err(err) => {
-            println!("Failed writing to file: \n\t{}", err.to_string());
+            eprintln!("Failed writing to file: \n\t{}", err.to_string());
             return;
         }
     }

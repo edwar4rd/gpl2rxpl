@@ -11,9 +11,13 @@ gpl2rxpl <file [--silent] [--output path]| --help>
     --help: print this message
 ```
 
+after the a palette file is created at, say, `~/Folder/file.palette`
+
+do a `:source ~/Folder/file.palette` in rx to use that palette
+
 ## installation
 
 To install this binary using cargo, do
 ```
-cargo install --git https://github.com/cloudhead/rx/
+cargo install --git https://github.com/edwar4rd/gpl2rxpl/
 ```

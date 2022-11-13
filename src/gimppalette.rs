@@ -69,7 +69,7 @@ impl GIMPPalette {
         return &self.name;
     }
 
-    pub fn get_column(&self) -> u32 {
+    pub fn get_columns(&self) -> u32 {
         return self.columns;
     }
 
